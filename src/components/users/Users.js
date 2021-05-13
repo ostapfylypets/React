@@ -1,17 +1,13 @@
 import {useEffect, useState} from "react";
 import './Users.css'
 import User from "../user/user";
-
+import axios from '../../services/api';
 export default function Users() {
     let [users, setUsers] = useState([])
     let [simpleUsers, setSimpleUsers] = useState([])
 
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/users')
-            .then(value => value.json())
-            .then(value => {
-                setUsers([...value]);
-            });
+axios.get('/users').then(value =>setUsers ([...value.data]));
     }, []);
 
     const search = (id) => {

@@ -1,0 +1,12 @@
+.id {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.post-border {
+    border: antiquewhite 1px solid;
+}
+
+button {
+    margin-left: 5px;
+}
