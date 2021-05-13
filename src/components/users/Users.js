@@ -1,11 +1,10 @@
 import {useEffect, useState} from "react";
-import User from "../user/user";
 import './Users.css'
+import User from "../user/user";
 
 export default function Users() {
-    let [users, setUsers] = useState([]);
-    let [singleUser, setSingleUser] = useState(null);
-
+    let [users, setUsers] = useState([])
+    let [simpleUsers, setSimpleUsers] = useState([])
 
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/users')
@@ -17,16 +16,19 @@ export default function Users() {
 
     const search = (id) => {
         let find = users.find(value => value.id === id)
-        setSingleUser(find)
+        setSimpleUsers(find)
     }
     return (
-            <div className={'wrap'}>
-                <div className={'users-box'}>
-                    {users.map((value) => <User key={value.id} item={value} search={search}/>)}
-                </div>
-                <div className={'single-user-box'}>
-                    {singleUser ? (<h3>{singleUser.id}-{singleUser.username}</h3>) : (<h1>no have user</h1>)}
-                </div>
+        <div className={'wrap'}>
+            <div className={'users-box'}>
+                {
+                    users.map((value) => <User key={value.id} search={search} item={value}/>)
+                }
+
             </div>
-            );
-            }
+            <div className={'single-user-box'}>
+                {simpleUsers ? (<h2>{simpleUsers.id}-{simpleUsers.name}</h2>) : (<div> no info </div>)}
+            </div>
+        </div>
+    );
+}
