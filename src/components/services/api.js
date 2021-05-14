@@ -12,5 +12,5 @@ const getUser = () => {
 }
 
 export {
-    getPosts,getUser,axiosInstance
+     getPosts,getUser,axiosInstance
 }
