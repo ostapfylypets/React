@@ -21,12 +21,11 @@ export default function Posts() {
     return (
         <div>
             <div>{
-                posts.map((value, index) => <Post key = {index} value={value} findSinglePost = {findPost}/>)
+                posts.map((value) => <Post key = {value.id} value={value} findSinglePost = {findPost}/>)
             }</div>
             <div>
                 {
                     singlePosts ?(<div>
-
                         <h4>Post id: {singlePosts.id}</h4>
                         <p>Title: {singlePosts.title}</p>
                         <p>Body: {singlePosts.body}</p>
