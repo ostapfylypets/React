@@ -20,9 +20,6 @@ export default function Posts() {
     }
     return (
         <div>
-            <div>{
-                posts.map((value) => <Post key = {value.id} value={value} findSinglePost = {findPost}/>)
-            }</div>
             <div>
                 {
                     singlePosts ?(<div>
@@ -32,6 +29,10 @@ export default function Posts() {
                     </div>): (<h1>no post</h1>)
                 }
             </div>
+            <div>{
+                posts.map((value) => <Post key = {value.id} value={value} findSinglePost = {findPost}/>)
+            }</div>
+
         </div>
 
     );
