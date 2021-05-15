@@ -1,14 +1,15 @@
 import {useState} from "react";
-import axiosInstance from '../../services/api';
+import  {getPosts} from '../../services/api';
 import {useEffect} from "react";
 import Post from "./Post";
 import './Posts.css'
+
 
 export default function Posts() {
 
 
     useEffect(() => {
-        axiosInstance.get('/posts').then(value => setPost([...value.data]));
+        getPosts().then(value => setPost([...value.data]));
     }, []);
 
     let [posts, setPost] = useState([])

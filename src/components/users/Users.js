@@ -1,13 +1,14 @@
 import {useEffect, useState} from "react";
 import './Users.css'
 import User from "../user/user";
-import axios from '../../services/api';
+import {getUsers} from "../../services/api";
+
 export default function Users() {
     let [users, setUsers] = useState([])
     let [simpleUsers, setSimpleUsers] = useState([])
 
     useEffect(() => {
-axios.get('/users').then(value =>setUsers ([...value.data]));
+        getUsers().then(value => setUsers([...value.data]));
     }, []);
 
     const search = (id) => {
